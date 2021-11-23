@@ -15,7 +15,7 @@ INSERT INTO products (name, description, cost) VALUES
   CREATE TABLE comments (
   id INT AUTO_INCREMENT  PRIMARY KEY,
   content VARCHAR(250) NOT NULL,
-  id_product INT(250) NOT NULL
+  id_product INT(250)
 );
  
 INSERT INTO comments (content, id_product) VALUES
