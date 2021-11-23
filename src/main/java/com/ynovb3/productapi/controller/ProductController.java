@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ynovb3.productapi.model.Product;
-import com.ynovb3.productapi.repository.ProductRepository;
 import com.ynovb3.productapi.service.ProductService;
 
 @RestController

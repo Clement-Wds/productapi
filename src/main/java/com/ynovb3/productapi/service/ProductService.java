@@ -15,9 +15,6 @@ public class ProductService {
 	private ProductRepository productRepository;
 	
 	public Product upsert(Product product) {
-		if(product.getName().length() < 8) {
-			return null;
-		}
 		return productRepository.save(product);
 	}
 	
