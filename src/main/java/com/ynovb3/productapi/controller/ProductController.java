@@ -77,5 +77,10 @@ public class ProductController {
 		
 		return new ResponseEntity<Product>(HttpStatus.NOT_FOUND);
 	}
+	
+	@GetMapping("/product/filter/{name}")
+	public Iterable<Product> getProductByName(@PathVariable("name") String name){
+		return productService.getProductsByName(name);
+	}
 
 }

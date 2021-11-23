@@ -30,4 +30,8 @@ public class ProductService {
 		productRepository.deleteById(id);
 	}
 	
+	public Iterable<Product> getProductsByName(String name){
+		return productRepository.findByName(name);
+	}
+	
 }
