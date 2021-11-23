@@ -13,7 +13,7 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 	//Derived query (requête dérivée)
 	public Iterable<Product> findByName(String name);
 	
-	//Native query
+	//Native query (for example)
 	@Query(value = "SELECT * FROM products WHERE name = :name", nativeQuery = true)
 	public Iterable<Product> findByNameNative(@Param("name") String name);
 	
