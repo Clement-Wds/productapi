@@ -1,5 +1,6 @@
 package com.ynovb3.productapi.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -12,16 +13,18 @@ public class Product {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //Clé Primaire - Auto incrémentation
-	private int id;
+	private Integer id;
 	
+	@Column(name = "name") //si jamais le nom de colomne est différent du nom d'attribut
 	private String name;
+	
 	private String description;
 	private int cost;
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
