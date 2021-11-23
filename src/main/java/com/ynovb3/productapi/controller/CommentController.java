@@ -32,9 +32,12 @@ public class CommentController {
 		
 	}
 	
-	@DeleteMapping("/comment/{id}")
-	public void deleteComment(@PathVariable("id") Integer id) {
-		commentService.deleteComment(id);
+	@DeleteMapping("/comment/{comment_id}")
+	public void deleteComment(@PathVariable("comment_id") Integer comment_id, @PathVariable("product_id") Integer product_id) {
+		Comment c = commentService.getComment(comment_id).get();
+		Product p = productService.getProduct(1).get();
+		p.getComments().remove(c);
+		p = productService.upsert(p);
 	}
 	
 }
