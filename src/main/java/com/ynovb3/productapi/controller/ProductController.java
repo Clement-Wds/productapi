@@ -15,21 +15,22 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ynovb3.productapi.model.Product;
 import com.ynovb3.productapi.repository.ProductRepository;
+import com.ynovb3.productapi.service.ProductService;
 
 @RestController
 public class ProductController {
 	
 	@Autowired
-	private ProductRepository productRepository;
+	private ProductService productService;
 	
 	@GetMapping("/products")
 	public Iterable<Product> getProducts(){
-		return productRepository.findAll();
+		return productService.getProducts();
 	}
 	
 	@GetMapping("/product/{id}")
 	public ResponseEntity<Product> getProductById(@PathVariable Integer id) {
-		Optional<Product> p = productRepository.findById(id);
+		Optional<Product> p = productService.getProduct(id);
 		if(p.isPresent()) {
 			return new ResponseEntity<Product>(p.get(), HttpStatus.OK);
 		}
@@ -38,17 +39,17 @@ public class ProductController {
 	
 	@PostMapping("/product")
 	public void addProduct(@RequestBody Product product) {
-		productRepository.save(product);
+		productService.upsert(product);
 	}
 	
 	@DeleteMapping("/product/{id}")
 	public void deleteProduct(@PathVariable("id") Integer id) {
-		productRepository.deleteById(id);
+		productService.deleteProduct(id);
 	}
 	
 	@PutMapping("/product")
 	public Product replaceProduct(@RequestBody Product product) {
-		return productRepository.save(product);
+		return productService.upsert(product);
 	}
 
 }
