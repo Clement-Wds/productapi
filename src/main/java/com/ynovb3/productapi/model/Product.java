@@ -19,7 +19,7 @@ public class Product {
 	private String name;
 	
 	private String description;
-	private int cost;
+	private Integer cost;
 	
 	public Integer getId() {
 		return id;
@@ -42,10 +42,10 @@ public class Product {
 		this.description = description;
 	}
 	
-	public int getCost() {
+	public Integer getCost() {
 		return cost;
 	}
-	public void setCost(int cost) {
+	public void setCost(Integer cost) {
 		this.cost = cost;
 	}
 	
