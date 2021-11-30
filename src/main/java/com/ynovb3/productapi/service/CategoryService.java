@@ -11,19 +11,22 @@ import com.ynovb3.productapi.repository.CategoryRepository;
 @Service
 public class CategoryService {
 
+	//Injection du repository
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
-	public Category upsert(Category category) {
-		return categoryRepository.save(category);
+	//Get ALL
+	public Iterable<Category> getCategories(){
+		return categoryRepository.findAll();
 	}
 	
+	//Get By ID
 	public Optional<Category> getCategory(Integer id){
 		return categoryRepository.findById(id);
 	}
 	
-	public Iterable<Category> getCategories(){
-		return categoryRepository.findAll();
+	public Category upsert(Category category) {
+		return categoryRepository.save(category);
 	}
 	
 	public void deleteCategory(Integer id) {

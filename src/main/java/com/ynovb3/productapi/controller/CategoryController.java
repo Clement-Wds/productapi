@@ -15,6 +15,7 @@ import com.ynovb3.productapi.service.CategoryService;
 @RestController
 public class CategoryController {
 
+	//Injection du service
 	@Autowired
 	private CategoryService categoryService;
 	
