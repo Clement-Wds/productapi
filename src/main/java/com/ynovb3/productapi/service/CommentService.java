@@ -5,7 +5,6 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.ynovb3.productapi.model.Comment;
-import com.ynovb3.productapi.model.Product;
 import com.ynovb3.productapi.repository.CommentRepository;
 
 @Service

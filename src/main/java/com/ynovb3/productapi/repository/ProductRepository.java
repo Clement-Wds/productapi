@@ -18,3 +18,4 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 	public Iterable<Product> findByNameNative(@Param("name") String name);
 	
 }
+
