@@ -1,11 +1,15 @@
-package com.ynovb3.productapi.transformer;
+package com.ynovb3.productapi.transformer.category;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.ynovb3.productapi.model.Category;
 import com.ynovb3.productapi.model.Product;
+import com.ynovb3.productapi.transformer.product.ProductLight;
 
+@Component
 public class CategoryTransformer {
 
 	public CategoryFull transform(Category category) {
@@ -32,4 +36,7 @@ public class CategoryTransformer {
 		}
 		return categoriesFull;
 	}
+	
+	
+	
 }

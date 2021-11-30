@@ -1,11 +1,11 @@
-package com.ynovb3.productapi.transformer;
+package com.ynovb3.productapi.transformer.product;
 
 public class ProductLight {
 
-	private Integer id;
-	private String name;
-	private String description;
-	private Integer cost;
+	protected Integer id;
+	protected String name;
+	protected String description;
+	protected Integer cost;
 	
 	public Integer getId() {
 		return id;
@@ -31,5 +31,6 @@ public class ProductLight {
 	public void setCost(Integer cost) {
 		this.cost = cost;
 	}
+	
 	
 }
