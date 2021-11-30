@@ -1,5 +1,6 @@
 package com.ynovb3.productapi.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ynovb3.productapi.model.Category;
 import com.ynovb3.productapi.service.CategoryService;
+import com.ynovb3.productapi.transformer.CategoryFull;
 
 @RestController
 public class CategoryController {
@@ -21,7 +23,7 @@ public class CategoryController {
 	
 	//Get all categories
 	@GetMapping("/categories")
-	public Iterable<Category> getCategories(){
+	public List<CategoryFull> getCategories() {
 		return categoryService.getCategories();
 	}
 	

@@ -1,5 +1,6 @@
 package com.ynovb3.productapi.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,9 @@ import org.springframework.stereotype.Service;
 
 import com.ynovb3.productapi.model.Category;
 import com.ynovb3.productapi.repository.CategoryRepository;
+import com.ynovb3.productapi.transformer.CategoryFull;
+import com.ynovb3.productapi.transformer.CategoryTransformer;
+
 
 @Service
 public class CategoryService {
@@ -15,21 +19,16 @@ public class CategoryService {
 	@Autowired
 	private CategoryRepository categoryRepository;
 	
-	//Get ALL
-	public Iterable<Category> getCategories(){
-		return categoryRepository.findAll();
+	//get All
+	public List<CategoryFull> getCategories() {
+		Iterable<Category> categories = categoryRepository.findAll();
+		CategoryTransformer transformer = new CategoryTransformer();
+		return transformer.transform(categories);
 	}
-	
+
 	//Get By ID
 	public Optional<Category> getCategory(Integer id){
 		return categoryRepository.findById(id);
 	}
 	
-	public Category upsert(Category category) {
-		return categoryRepository.save(category);
-	}
-	
-	public void deleteCategory(Integer id) {
-		categoryRepository.deleteById(id);
-	}
 }
