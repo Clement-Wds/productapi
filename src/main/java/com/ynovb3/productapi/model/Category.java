@@ -39,7 +39,7 @@ public class Category {
 	
 	@JoinTable(
 			//nom de la table de jointure
-			name = "category_product", 
+			name = "category_product",
 			//clé étrangère dans la table de jointure correspondant à la clé primaire de la classe courante category
 			joinColumns = @JoinColumn(name = "category_id"), 
 			//clé étrangère dans la table de jointure coorespondant à la clé primaire de la classe en relation product
