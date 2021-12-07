@@ -24,6 +24,11 @@ public class ProductController {
 
 	@Autowired
 	private ProductService productService;
+	
+	@GetMapping("/securitynone")
+	public String securityNone() {
+		return "open";
+	}
 
 	@GetMapping("/product")
 	public List<ProductFull> getProducts() {
