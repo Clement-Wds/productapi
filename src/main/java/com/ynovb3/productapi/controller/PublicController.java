@@ -12,6 +12,5 @@ public class PublicController {
 	public String securityNone() {
 		return "open";
 	}
-	
 
 }
