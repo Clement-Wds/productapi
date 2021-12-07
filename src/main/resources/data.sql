@@ -48,3 +48,14 @@ INSERT INTO category_product (category_id, product_id) VALUES
   (4,1),
   (4,2),
   (4,3);
+  
+CREATE TABLE user (
+    id INT AUTO_INCREMENT  PRIMARY KEY,
+    username VARCHAR(250) NOT NULL,
+    password VARCHAR(250) NOT NULL
+);
+
+INSERT INTO user (username, password) VALUES
+    ('admin', '$2a$12$y7XaERQc44k6XimlkpWEieVL0xHAk1AUESFxqIODWvOX.hvD74w6y'),
+    ('azerty', '$2a$12$WgLPDH/wz0JxbtcwbuqHXO5Miu1Cv/QoMI6EjuwSin.Ql4iTnQqce'),
+    ('clement','$2a$12$EVjT0SyTXBIS1VAHr0FcaufDZDPklV01XBBI6s6Ce5agZ93p8NgVS');

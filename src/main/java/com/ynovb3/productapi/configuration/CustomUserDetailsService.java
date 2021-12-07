@@ -3,23 +3,33 @@ package com.ynovb3.productapi.configuration;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import com.ynovb3.productapi.repository.UserRepository;
 
 @Service
 public class CustomUserDetailsService implements UserDetailsService {
+	
+	@Autowired
+	private UserRepository userRepository;
+	
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         
-        String password = new BCryptPasswordEncoder().encode("1234");
-        User user = new User("admin", password, getGrantedAuthorities());
+    	com.ynovb3.productapi.model.User internalUser = userRepository.findByUsername(username);
+        if(internalUser == null) {
+        	throw new UsernameNotFoundException(username + " not found");
+        }
+        User user = new User(internalUser.getUsername(), internalUser.getPassword(), getGrantedAuthorities());
         return user;
+        
     }
     
     public List<GrantedAuthority> getGrantedAuthorities(){
