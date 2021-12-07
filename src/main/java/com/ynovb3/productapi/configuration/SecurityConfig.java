@@ -36,6 +36,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		String encodedPassword = passwordEncoder().encode("password");
 		
 		auth.inMemoryAuthentication().passwordEncoder(passwordEncoder()).withUser("clement").password(encodedPassword).roles("USER");
+		
+		auth.userDetailsService(userDetailsService()).passwordEncoder(passwordEncoder());
 	}
 	
 }

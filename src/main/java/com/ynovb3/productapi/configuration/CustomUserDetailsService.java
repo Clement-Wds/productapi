@@ -27,5 +27,5 @@ public class CustomUserDetailsService implements UserDetailsService {
         authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
         return authorities;
     }
-    
+
 }
