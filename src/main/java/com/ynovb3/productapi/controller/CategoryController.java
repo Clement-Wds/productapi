@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ynovb3.productapi.model.Category;
@@ -15,6 +16,7 @@ import com.ynovb3.productapi.service.ProductService;
 import com.ynovb3.productapi.transformer.category.CategoryFull;
 
 @RestController
+@RequestMapping("/api/private")
 public class CategoryController {
 
 	@Autowired
